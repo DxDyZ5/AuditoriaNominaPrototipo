@@ -48,7 +48,7 @@ Route::prefix('update')->group(function () {
 Route::post('/locale', 'LocaleController@updateLocale')->name('locale');
 
 // Home routes
-Route::redirect('/', '/login')->name('home');
+Route::redirect('/', 'login')->name('home');
 Route::post('/analyze', 'HomeController@storeReport')->middleware('throttle:10,60')->name('guest');
 
 // Contact routes

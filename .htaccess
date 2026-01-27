@@ -5,10 +5,10 @@
 
     RewriteEngine On
 
-    RewriteCond %{THE_REQUEST} ^.*/index\.php
-    RewriteRule ^(.*)index.php$ /$1 [R=301,L]
+    RewriteCond %{THE_REQUEST} \s/+(.*/)?index\.php[\s?]
+    RewriteRule ^index\.php$ /%1 [R=301,L,NE]
 
-    RewriteCond %{REQUEST_URI} !^public
+    RewriteCond %{REQUEST_URI} !/public(/|$)
     RewriteRule ^(.*)$ public/$1 [L]
 
     <Files ~ "\.(env|config.js|md|gitignore|gitattributes|lock)$">
